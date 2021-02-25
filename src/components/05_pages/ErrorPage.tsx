@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { AuthContext } from 'contexts/AuthProvider'
 
 export const ErrorPage: React.FC = () => {
+  const { authError } = useContext(AuthContext)
+
   return (
     <div>
-      <p>エラー</p>
+      <p>{authError || 'エラー'}</p>
     </div>
   )
 }

@@ -4,14 +4,17 @@ import { AuthUser, getAuthUser } from 'utils/auth'
 
 interface Context {
   authUser: AuthUser | null
+  authError: string | null
 }
 
 const AuthContext = createContext<Context>({
   authUser: null,
+  authError: null,
 })
 
 const AuthProvider: React.FC = ({ children }) => {
   const [authUser, setAuthUser] = useState<AuthUser | null>(null)
+  const [authError, setAuthError] = useState<string | null>(null)
   const [loading, setLoading] = useState<boolean>(true)
 
   useEffect(() => {
@@ -20,8 +23,8 @@ const AuthProvider: React.FC = ({ children }) => {
         const currentAuthUser = await getAuthUser(user)
         setAuthUser(currentAuthUser)
       } catch (err) {
-        console.error(err.message)
         setAuthUser(null)
+        setAuthError(err.message)
       } finally {
         setLoading(false)
       }
@@ -32,6 +35,7 @@ const AuthProvider: React.FC = ({ children }) => {
     <AuthContext.Provider
       value={{
         authUser: authUser,
+        authError: authError,
       }}
     >
       {!loading && children}
