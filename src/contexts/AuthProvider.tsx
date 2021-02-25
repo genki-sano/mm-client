@@ -24,7 +24,7 @@ const AuthProvider: React.FC = ({ children }) => {
         setAuthUser(currentAuthUser)
       } catch (err) {
         setAuthUser(null)
-        setAuthError(err.stack)
+        setAuthError(err.message)
       } finally {
         setLoading(false)
       }
