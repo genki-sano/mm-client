@@ -6,7 +6,7 @@ export const IndexPage: React.FC = () => {
 
   return (
     <div>
-      <p>こんにちは {authUser ? authUser.displayName : '未ログイン'} さん </p>
+      <p>こんにちは {authUser ? authUser.uid : '未ログイン'} さん </p>
     </div>
   )
 }

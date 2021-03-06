@@ -19,14 +19,7 @@ const signInWithCustomToken = async (
   if (!res.user) {
     throw new Error('カスタムトークンでのログインに失敗しました。')
   }
-  const firebaseUser = res.user
-  if (!firebaseUser.displayName) {
-    const profile = await liff.getProfile()
-    await firebaseUser.updateProfile({
-      displayName: profile.displayName,
-    })
-  }
-  return firebaseUser
+  return res.user
 }
 
 export const signInWithFirebaseUser = async (
@@ -47,7 +40,6 @@ export const signInWithFirebaseUser = async (
 
 export interface AuthUser {
   uid: string
-  displayName: string
 }
 
 export const createAuthUser = (
@@ -58,7 +50,6 @@ export const createAuthUser = (
   }
   return {
     uid: firebaseUser.uid,
-    displayName: firebaseUser.displayName || '匿名希望',
   }
 }
 
