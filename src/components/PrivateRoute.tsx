@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { Route, RouteProps } from 'react-router-dom'
-import { AuthContext } from 'contexts/AuthProvider'
 import { ErrorPage } from 'components/05_pages/ErrorPage'
+import { RootState, useSelector } from 'lib/store'
 
 const PrivateRoute: React.FC<RouteProps> = ({ component, ...options }) => {
-  const { authUser } = useContext(AuthContext)
-  const Component = authUser ? component : ErrorPage
+  const { authUserId } = useSelector((store: RootState) => store.auth)
+  const Component = authUserId ? component : ErrorPage
 
   return <Route {...options} component={Component} />
 }

@@ -38,24 +38,23 @@ export const signInWithFirebaseUser = async (
   return firebaseUser
 }
 
-export interface AuthUser {
-  uid: string
-}
-
-export const createAuthUser = (
+export const createAuthUserId = (
   firebaseUser: firebase.default.User,
-): AuthUser | null => {
+): string | null => {
   if (!firebaseUser || !firebaseUser.uid) {
     return null
   }
-  return {
-    uid: firebaseUser.uid,
-  }
+  return firebaseUser.uid
 }
 
-export const getAuthUser = async (
+export const getAuthUserId = async (
   user: firebase.default.User | null,
-): Promise<AuthUser | null> => {
+): Promise<string | null> => {
+  const host = document.location.hostname
+  if (host === 'localhost' || host === '127.0.0.1') {
+    return 'U380b4e6dd7a8aa109080895fd992eef4'
+  }
+
   const firebaseUser = await signInWithFirebaseUser(user)
-  return createAuthUser(firebaseUser)
+  return createAuthUserId(firebaseUser)
 }

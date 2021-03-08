@@ -1,12 +1,8 @@
-import React, { useContext } from 'react'
-import { AuthContext } from 'contexts/AuthProvider'
+import React from 'react'
+import { RootState, useSelector } from 'lib/store'
 
 export const IndexPage: React.FC = () => {
-  const { authUser } = useContext(AuthContext)
+  const { authUserId } = useSelector((store: RootState) => store.auth)
 
-  return (
-    <div>
-      <p>こんにちは {authUser ? authUser.uid : '未ログイン'} さん </p>
-    </div>
-  )
+  return <div>{authUserId || 'エラー'}</div>
 }

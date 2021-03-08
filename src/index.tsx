@@ -10,19 +10,22 @@ import CssBaseline from '@material-ui/core/CssBaseline'
 import { App } from 'components/App'
 import { theme } from 'lib/theme'
 import { store } from 'lib/store'
+import { signIn } from 'lib/store/slices/auth'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <StylesProvider injectFirst>
-        <MaterialThemeProvider theme={theme}>
-          <StyledThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
-          </StyledThemeProvider>
-        </MaterialThemeProvider>
-      </StylesProvider>
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root'),
-)
+store.dispatch(signIn()).then(() => {
+  ReactDOM.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <StylesProvider injectFirst>
+          <MaterialThemeProvider theme={theme}>
+            <StyledThemeProvider theme={theme}>
+              <CssBaseline />
+              <App />
+            </StyledThemeProvider>
+          </MaterialThemeProvider>
+        </StylesProvider>
+      </Provider>
+    </React.StrictMode>,
+    document.getElementById('root'),
+  )
+})
