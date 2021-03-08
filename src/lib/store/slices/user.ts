@@ -19,21 +19,22 @@ const initialState: State = {
   man: null,
 }
 
+const createUser = (item: UserResponse): User => {
+  return {
+    name: item.name,
+    authUserId: item.auth_user_id,
+  }
+}
+
 const userSlice = createSlice({
   name: 'user',
   initialState: initialState,
   reducers: {
     setWoman(state, { payload }: PayloadAction<UserResponse>) {
-      state.woman = {
-        name: payload.name,
-        authUserId: payload.auth_user_id,
-      }
+      state.woman = createUser(payload)
     },
     setMan(state, { payload }: PayloadAction<UserResponse>) {
-      state.man = {
-        name: payload.name,
-        authUserId: payload.auth_user_id,
-      }
+      state.man = createUser(payload)
     },
     clearUser(state) {
       state.woman = null
@@ -42,7 +43,7 @@ const userSlice = createSlice({
   },
 })
 
-export const { setWoman, setMan, clearUser } = userSlice.actions
+const { setWoman, setMan, clearUser } = userSlice.actions
 
 export const setUser = (): AppThunk => async (dispatch) => {
   try {
