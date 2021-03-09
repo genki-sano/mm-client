@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { BrowserRouter, Switch } from 'react-router-dom'
 import { PrivateRoute } from 'components/PrivateRoute'
 import { IndexPage } from 'components/05_pages/IndexPage'
-import { signIn } from 'lib/store/slices/auth'
-import { setUser } from 'lib/store/slices/user'
+import { signIn } from 'lib/service/auth'
+import { setUser } from 'lib/service/user'
 
 export const App: React.FC = () => {
   const dispatch = useDispatch()

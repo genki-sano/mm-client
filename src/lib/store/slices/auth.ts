@@ -1,11 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { auth } from 'lib/firebase/init'
-import { AppThunk } from 'lib/store'
-import { signInWithFirebaseUser, createAuthUserId } from 'utils/auth'
 
-interface SetAuthPayload {
-  firebaseUser: firebase.default.User
-}
 interface State {
   authUserId: string | null
 }
@@ -14,12 +8,21 @@ const initialState: State = {
   authUserId: null,
 }
 
+const createAuthUserId = (
+  firebaseUser: firebase.default.User,
+): string | null => {
+  if (!firebaseUser || !firebaseUser.uid) {
+    return null
+  }
+  return firebaseUser.uid
+}
+
 const authSlice = createSlice({
   name: 'auth',
   initialState: initialState,
   reducers: {
-    setAuth(state, { payload }: PayloadAction<SetAuthPayload>) {
-      state.authUserId = createAuthUserId(payload.firebaseUser)
+    setAuth(state, { payload }: PayloadAction<firebase.default.User>) {
+      state.authUserId = createAuthUserId(payload)
     },
     setAuthUserId(state, { payload }: PayloadAction<string>) {
       state.authUserId = payload
@@ -30,28 +33,5 @@ const authSlice = createSlice({
   },
 })
 
-const { setAuth, setAuthUserId, clearAuth } = authSlice.actions
-
-export const signIn = (): AppThunk => async (dispatch) => {
-  const host = document.location.hostname
-  if (host === 'localhost' || host === '127.0.0.1') {
-    dispatch(setAuthUserId('temp'))
-    return
-  }
-  auth.onAuthStateChanged(async (user) => {
-    try {
-      const firebaseUser = await signInWithFirebaseUser(user)
-      dispatch(setAuth({ firebaseUser }))
-    } catch (error) {
-      console.error(error.message)
-      dispatch(clearAuth())
-    }
-  })
-}
-
-export const logout = (): AppThunk => async (dispatch) => {
-  auth.signOut()
-  dispatch(clearAuth())
-}
-
+export const authActions = authSlice.actions
 export const authReducer = authSlice.reducer

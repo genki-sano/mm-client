@@ -1,6 +1,8 @@
 import liff from '@line/liff'
-import { auth } from 'lib/firebase/init'
 import { verifyToken } from 'lib/api/auth'
+import { auth } from 'lib/firebase/init'
+import { AppThunk } from 'lib/store'
+import { actions } from 'lib/store/slices'
 
 const getLiffAccessToken = async (liffId: string): Promise<string | null> => {
   await liff.init({ liffId: liffId })
@@ -22,7 +24,7 @@ const signInWithCustomToken = async (
   return res.user
 }
 
-export const signInWithFirebaseUser = async (
+const signInWithFirebaseUser = async (
   user: firebase.default.User | null,
 ): Promise<firebase.default.User> => {
   if (user) {
@@ -38,23 +40,28 @@ export const signInWithFirebaseUser = async (
   return firebaseUser
 }
 
-export const createAuthUserId = (
-  firebaseUser: firebase.default.User,
-): string | null => {
-  if (!firebaseUser || !firebaseUser.uid) {
-    return null
-  }
-  return firebaseUser.uid
+export const signIn = (): AppThunk => async (dispatch) => {
+  dispatch(actions.startLoading())
+  auth.onAuthStateChanged(async (user) => {
+    const host = document.location.hostname
+    if (host === 'localhost' || host === '127.0.0.1') {
+      dispatch(actions.setAuthUserId('local'))
+      dispatch(actions.endLoading())
+      return
+    }
+    try {
+      const firebaseUser = await signInWithFirebaseUser(user)
+      dispatch(actions.setAuth(firebaseUser))
+    } catch (error) {
+      console.error(error.message)
+      dispatch(actions.clearAuth())
+    } finally {
+      dispatch(actions.endLoading())
+    }
+  })
 }
 
-export const getAuthUserId = async (
-  user: firebase.default.User | null,
-): Promise<string | null> => {
-  const host = document.location.hostname
-  if (host === 'localhost' || host === '127.0.0.1') {
-    return 'U380b4e6dd7a8aa109080895fd992eef4'
-  }
-
-  const firebaseUser = await signInWithFirebaseUser(user)
-  return createAuthUserId(firebaseUser)
+export const logout = (): AppThunk => async (dispatch) => {
+  auth.signOut()
+  dispatch(actions.clearAuth())
 }
