@@ -9,7 +9,14 @@ import {
 import CssBaseline from '@material-ui/core/CssBaseline'
 import { App } from 'components/App'
 import { theme } from 'lib/theme'
-import { store } from 'lib/store'
+import { createStore } from 'lib/store'
+
+const preloadedState = {
+  ui: {
+    loading: true,
+  },
+}
+const store = createStore(preloadedState)
 
 ReactDOM.render(
   <React.StrictMode>

@@ -41,7 +41,6 @@ const signInWithFirebaseUser = async (
 }
 
 export const signIn = (): AppThunk => async (dispatch) => {
-  dispatch(actions.startLoading())
   auth.onAuthStateChanged(async (user) => {
     const host = document.location.hostname
     if (host === 'localhost' || host === '127.0.0.1') {
