@@ -1,10 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface State {
+  loading: boolean
   authUserId: string | null
 }
 
 const initialState: State = {
+  loading: false,
   authUserId: null,
 }
 
@@ -18,20 +20,29 @@ const createAuthUserId = (
 }
 
 const authSlice = createSlice({
-  name: 'auth',
+  name: 'app/auth',
   initialState: initialState,
   reducers: {
-    setAuth(state, { payload }: PayloadAction<firebase.default.User>) {
-      state.authUserId = createAuthUserId(payload)
+    startAuthLoading(state) {
+      state.loading = true
+    },
+    endAuthLoading(state) {
+      state.loading = false
     },
     setAuthUserId(state, { payload }: PayloadAction<string>) {
       state.authUserId = payload
     },
-    clearAuth(state) {
+    setAuthUserIdByFirebaseUser(
+      state,
+      { payload }: PayloadAction<firebase.default.User>,
+    ) {
+      state.authUserId = createAuthUserId(payload)
+    },
+    clearAuthUserId(state) {
       state.authUserId = null
     },
   },
 })
 
-export const authActions = authSlice.actions
-export const authReducer = authSlice.reducer
+export const appAuthActions = authSlice.actions
+export const appAuthReducer = authSlice.reducer

@@ -45,22 +45,22 @@ export const signIn = (): AppThunk => async (dispatch) => {
     const host = document.location.hostname
     if (host === 'localhost' || host === '127.0.0.1') {
       dispatch(actions.setAuthUserId('local'))
-      dispatch(actions.endLoading())
+      dispatch(actions.endAuthLoading())
       return
     }
     try {
       const firebaseUser = await signInWithFirebaseUser(user)
-      dispatch(actions.setAuth(firebaseUser))
+      dispatch(actions.setAuthUserIdByFirebaseUser(firebaseUser))
     } catch (error) {
       console.error(error.message)
-      dispatch(actions.clearAuth())
+      dispatch(actions.clearAuthUserId())
     } finally {
-      dispatch(actions.endLoading())
+      dispatch(actions.endAuthLoading())
     }
   })
 }
 
 export const logout = (): AppThunk => async (dispatch) => {
   auth.signOut()
-  dispatch(actions.clearAuth())
+  dispatch(actions.clearAuthUserId())
 }

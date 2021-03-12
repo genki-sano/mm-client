@@ -12,8 +12,9 @@ import { theme } from 'lib/theme'
 import { createStore } from 'lib/store'
 
 const preloadedState = {
-  ui: {
+  appAuth: {
     loading: true,
+    authUserId: null,
   },
 }
 const store = createStore(preloadedState)

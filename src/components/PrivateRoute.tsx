@@ -5,8 +5,9 @@ import { LoadingPage } from 'components/05_pages/LoadingPage'
 import { RootState, useSelector } from 'lib/store'
 
 const PrivateRoute: React.FC<RouteProps> = ({ component, ...options }) => {
-  const { authUserId } = useSelector((store: RootState) => store.auth)
-  const { loading } = useSelector((store: RootState) => store.ui)
+  const { authUserId, loading } = useSelector(
+    (store: RootState) => store.appAuth,
+  )
 
   if (loading) {
     return <Route {...options} component={LoadingPage} />

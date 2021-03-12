@@ -1,16 +1,13 @@
 import { combineReducers } from '@reduxjs/toolkit'
-import { authActions, authReducer } from 'lib/store/slices/auth'
-import { userActions, userReducer } from 'lib/store/slices/user'
-import { uiActions, uiReducer } from 'lib/store/slices/ui'
+import { entitiesActions, entitiesReducer } from 'lib/store/slices/entities'
+import { appAuthActions, appAuthReducer } from 'lib/store/slices/app/auth'
 
 export const rootReducer = combineReducers({
-  auth: authReducer,
-  user: userReducer,
-  ui: uiReducer,
+  appAuth: appAuthReducer,
+  entities: entitiesReducer,
 })
 
 export const actions = {
-  ...authActions,
-  ...userActions,
-  ...uiActions,
+  ...appAuthActions,
+  ...entitiesActions,
 }
