@@ -7,6 +7,8 @@ import { getItem, setItem } from 'lib/util/sessionStorage'
 export const WOMAN_TYPE = 1
 export const MAN_TYPE = 2
 
+const SESSION_KEY_USERS = 'users'
+
 export const createUserType = (type: number): UserType => {
   if (type === WOMAN_TYPE) {
     return 'woman'
@@ -79,8 +81,6 @@ const normalize = (items: UserResponse[]): NormalizedSchema => {
     },
   }
 }
-
-const SESSION_KEY_USERS = 'users'
 
 export const setUser = (): AppThunk => async (dispatch) => {
   const items = getItem(SESSION_KEY_USERS)

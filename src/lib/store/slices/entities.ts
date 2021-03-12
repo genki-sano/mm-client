@@ -11,12 +11,26 @@ export interface NormalizedUsers {
   man: User
 }
 
+export interface Payment {
+  id: number
+  userType: UserType
+  category: string
+  price: number
+  date: string
+  memo: string
+}
+export interface NormalizedPayments {
+  [id: number]: Payment
+}
+
 interface State {
   users: NormalizedUsers | null
+  payments: NormalizedPayments | null
 }
 
 const initialState: State = {
   users: null,
+  payments: null,
 }
 
 const entitiesSlice = createSlice({
@@ -28,6 +42,12 @@ const entitiesSlice = createSlice({
     },
     clearUsers(state) {
       state.users = null
+    },
+    setPayments(state, { payload }: PayloadAction<NormalizedPayments>) {
+      state.payments = payload
+    },
+    clearPayments(state) {
+      state.payments = null
     },
   },
 })
