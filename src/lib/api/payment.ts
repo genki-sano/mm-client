@@ -18,11 +18,10 @@ export const getPaymentByDate = (
 ): AxiosPromise<GetPaymentByDateResponse> => {
   const y = date.getFullYear()
   const m = date.getMonth() + 1
-  const formatDate = y + '-' + zeroPadding(m, 2)
 
   const options = {
     params: {
-      date: formatDate,
+      date: `${y}-${zeroPadding(m, 2)}`,
     },
   }
   return axios.get('api/payments', options)

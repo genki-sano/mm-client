@@ -65,7 +65,7 @@ interface NormalizedSchema {
 }
 
 const normalize = (items: UserResponse[]): NormalizedSchema => {
-  let users = [] as { [id: number]: User }
+  const users = {} as { [id: number]: User }
   items.forEach((item) => {
     users[item.type] = createUser(item)
   })
