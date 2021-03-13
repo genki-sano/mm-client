@@ -70,6 +70,8 @@ export const fetchList = (date: Date): AppThunk => async (dispatch) => {
     dispatch(actions.setTotals(result.totals))
   } catch (err) {
     console.error(err)
+    dispatch(actions.clearPayments())
+    dispatch(actions.clearList())
   } finally {
     dispatch(actions.endListLoading())
   }

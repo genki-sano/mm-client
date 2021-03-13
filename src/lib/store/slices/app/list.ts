@@ -40,6 +40,10 @@ const listSlice = createSlice({
     setTotals(state, { payload }: PayloadAction<NormalizedTotals>) {
       state.totals = payload
     },
+    clearList(state) {
+      state.paymentIds = null
+      state.totals = null
+    },
   },
 })
 
