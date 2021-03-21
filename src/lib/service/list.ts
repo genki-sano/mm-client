@@ -5,7 +5,7 @@ import {
   NormalizedPaymentIds,
   NormalizedTotals,
 } from 'lib/store/slices/app/list'
-import { NormalizedPayments } from 'lib/store/slices/entities'
+import { Category, NormalizedPayments } from 'lib/store/slices/entities'
 import { createUserType } from 'lib/service/user'
 import moment from 'moment'
 
@@ -37,7 +37,7 @@ const normalize = (data: PaymentResponse[]): NormalizedSchema => {
     entities[payment.id] = {
       id: payment.id,
       userType: userType,
-      category: payment.category,
+      category: payment.category as Category,
       price: payment.price,
       date: formatDate,
       memo: payment.memo,

@@ -14,9 +14,10 @@ import StarBorderIcon from '@material-ui/icons/StarBorder'
 import TrainIcon from '@material-ui/icons/Train'
 import WeekendIcon from '@material-ui/icons/Weekend'
 import WifiIcon from '@material-ui/icons/Wifi'
+import { Category } from 'lib/store/slices/entities'
 
 interface Props {
-  category: string
+  category: Category
 }
 
 export const CategoryIcon: React.FC<Props> = ({ category }) => {
