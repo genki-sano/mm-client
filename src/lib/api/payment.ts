@@ -1,5 +1,6 @@
 import { AxiosPromise } from 'axios'
 import axios from 'lib/api/axios'
+import { zeroPadding } from 'lib/util/number'
 
 export interface PaymentResponse {
   id: number
@@ -25,8 +26,4 @@ export const getPaymentByDate = (
     },
   }
   return axios.get('api/payments', options)
-}
-
-const zeroPadding = (num: number, len: number) => {
-  return (Array(len).join('0') + num).slice(-len)
 }
