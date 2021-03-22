@@ -13,7 +13,7 @@ const Inner = styled.div`
   vertical-align: middle;
 `
 
-export const ListLoading: React.FC = () => {
+export const ListBodyLoading: React.FC = () => {
   return (
     <Wrapper>
       <Inner>

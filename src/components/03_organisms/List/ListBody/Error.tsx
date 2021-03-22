@@ -11,6 +11,6 @@ interface Props {
   massage: string
 }
 
-export const ListError: React.FC<Props> = ({ massage }) => {
+export const ListBodyError: React.FC<Props> = ({ massage }) => {
   return <Wrapper severity="error">{massage}</Wrapper>
 }

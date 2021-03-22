@@ -1,7 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { LocationDescriptor } from 'history'
+import { Moment } from 'moment'
 import styled from 'styled-components'
-import moment from 'moment'
 import AppBar from '@material-ui/core/AppBar'
 import Grid from '@material-ui/core/Grid'
 import Toolbar from '@material-ui/core/Toolbar'
@@ -9,7 +10,8 @@ import Typography from '@material-ui/core/Typography'
 import IconButton from '@material-ui/core/IconButton'
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore'
 import NavigateNextIcon from '@material-ui/icons/NavigateNext'
-import { RootState, useSelector } from 'lib/store'
+import { NormalizedTotals } from 'lib/store/slices/app/list'
+import { NormalizedUsers } from 'lib/store/slices/entities'
 import { numberWithDelimiter } from 'lib/util/number'
 import { theme } from 'lib/theme'
 
@@ -36,25 +38,20 @@ const PriceText = styled(Typography)`
 
 interface Props {
   loading: boolean
-  date: string
+  users: NormalizedUsers | null
+  totals: NormalizedTotals | null
+  startDate: Moment
+  endDate: Moment
+  lastTo: LocationDescriptor
+  nextTo: LocationDescriptor
 }
 
-export const ListHeader: React.FC<Props> = ({ loading, date }) => {
-  const users = useSelector((store: RootState) => store.entities.users)
-  const totals = useSelector((store: RootState) => store.appList.totals)
+export const ListHeaderPresenter: React.FC<Props> = (props) => {
+  const { loading, users, totals, startDate, endDate, lastTo, nextTo } = props
 
-  const startDate = moment(date).format('YYYY/MM/01')
-  const endDate = moment(date).endOf('month').format('YYYY/MM/DD')
+  const formatType = 'YYYY/MM/DD'
+  const term = `${startDate.format(formatType)} - ${endDate.format(formatType)}`
 
-  const lastMonth = moment(date).subtract(1, 'month').format('YYYYMM')
-  const nextMonth = moment(date).add(1, 'month').format('YYYYMM')
-
-  const lastTo = {
-    pathname: `/list/${lastMonth}`,
-  }
-  const nextTo = {
-    pathname: `/list/${nextMonth}`,
-  }
   return (
     <div>
       <AppBar position="static" component="div">
@@ -64,10 +61,9 @@ export const ListHeader: React.FC<Props> = ({ loading, date }) => {
               <NavigateBeforeIcon />
             </IconLink>
           </IconButton>
-          <TitleText
-            noWrap
-            align="center"
-          >{`${startDate} - ${endDate}`}</TitleText>
+          <TitleText noWrap align="center">
+            {term}
+          </TitleText>
           <IconButton aria-label="next" color="inherit">
             <IconLink to={nextTo}>
               <NavigateNextIcon />

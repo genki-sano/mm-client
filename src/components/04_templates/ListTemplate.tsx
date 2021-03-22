@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
-import { ListBody } from 'components/03_organisms/ListBody'
-import { ListHeader } from 'components/03_organisms/ListHeader'
+import { ListBody } from 'components/03_organisms/List/ListBody'
+import { ListHeader } from 'components/03_organisms/List/ListHeader'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled(Container)`
