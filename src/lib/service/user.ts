@@ -9,6 +9,22 @@ export const MAN_TYPE = 2
 
 const SESSION_KEY_USERS = 'users'
 
+export const getAuthUser = (
+  users: NormalizedUsers | null,
+  authUserId: string | null,
+): UserType | null => {
+  if (!users || !authUserId) {
+    return null
+  }
+  if (users.woman.authUserId === authUserId) {
+    return 'woman'
+  }
+  if (users.man.authUserId === authUserId) {
+    return 'man'
+  }
+  return null
+}
+
 export const createUserType = (type: number): UserType => {
   if (type === WOMAN_TYPE) {
     return 'woman'

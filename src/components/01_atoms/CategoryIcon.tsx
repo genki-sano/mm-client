@@ -20,7 +20,7 @@ interface Props {
   category: Category
 }
 
-export const CategoryIcon: React.FC<Props> = ({ category }) => {
+export const CategoryIcon: React.VFC<Props> = ({ category }) => {
   if (category === '食費') {
     return <RestaurantIcon />
   }
