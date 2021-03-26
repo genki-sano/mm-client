@@ -25,7 +25,7 @@ export const App: React.FC = () => {
         <Switch>
           <PrivateRoute path="/" component={IndexPage} exact />
           <PrivateRoute path="/list/:date" component={ListPage} />
-          <PrivateRoute path="/create" component={CreatePage} />
+          <PrivateRoute path="/add" component={CreatePage} />
         </Switch>
       </BrowserRouter>
     </MuiPickersUtilsProvider>

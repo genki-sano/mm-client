@@ -43,7 +43,7 @@ export const ListTemplate: React.FC<Props> = ({ loading, date }) => {
         <ListBody loading={loading} />
       </ListWrapper>
       <FloatingActionButton aria-label="add" color="primary">
-        <IconLink to={'/create'}>
+        <IconLink to={'/add'}>
           <AddIcon />
         </IconLink>
       </FloatingActionButton>
