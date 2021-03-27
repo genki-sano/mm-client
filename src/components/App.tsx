@@ -23,9 +23,9 @@ export const App: React.FC = () => {
     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={jaLocale}>
       <BrowserRouter>
         <Switch>
-          <PrivateRoute path="/" component={IndexPage} exact />
-          <PrivateRoute path="/list/:date" component={ListPage} />
-          <PrivateRoute path="/add" component={CreatePage} />
+          <PrivateRoute path="/" exact component={IndexPage} />
+          <PrivateRoute path="/list/:date" exact component={ListPage} />
+          <PrivateRoute path="/add" exact component={CreatePage} />
         </Switch>
       </BrowserRouter>
     </MuiPickersUtilsProvider>
