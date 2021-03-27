@@ -75,7 +75,7 @@ export const CreateForm: React.FC<Props> = ({
           />
         </BottomSection>
 
-        <AddBotton />
+        <AddBotton watch={watch} />
       </div>
     </form>
   )

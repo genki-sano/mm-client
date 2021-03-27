@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Container from '@material-ui/core/Container'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'
+import { Snackbar } from 'components/03_organisms/Common/Snackbar'
 import { ListBody } from 'components/03_organisms/List/ListBody'
 import { ListHeader } from 'components/03_organisms/List/ListHeader'
 import { theme } from 'lib/theme'
@@ -47,6 +48,7 @@ export const ListTemplate: React.FC<Props> = ({ loading, date }) => {
           <AddIcon />
         </IconLink>
       </FloatingActionButton>
+      <Snackbar />
     </Wrapper>
   )
 }

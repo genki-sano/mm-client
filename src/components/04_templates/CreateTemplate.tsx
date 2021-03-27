@@ -1,7 +1,9 @@
 import React from 'react'
 import { UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
+import Backdrop from '@material-ui/core/Backdrop'
 import Container from '@material-ui/core/Container'
+import CircularProgress from '@material-ui/core/CircularProgress'
 import { NormalizedUsers } from 'lib/store/slices/entities'
 import { theme } from 'lib/theme'
 import { CreateHeader } from 'components/03_organisms/Create/CreateHeader'
@@ -18,6 +20,10 @@ const Wrapper = styled(Container)`
   padding-left: 0;
   background-color: ${theme.palette.background.paper};
 `
+const Drawer = styled(Backdrop)`
+  z-index: ${theme.zIndex.drawer};
+  color: #fff;
+`
 
 interface Props {
   setValue: UseFormMethods<PaymentCreateForm>['setValue']
@@ -29,6 +35,7 @@ interface Props {
   togglePannelOpen: (b: boolean) => void
   setPannelType: (s: string) => void
   users: NormalizedUsers
+  loading: boolean
 }
 
 export const CreateTemplate: React.FC<Props> = ({
@@ -41,6 +48,7 @@ export const CreateTemplate: React.FC<Props> = ({
   pannelType,
   setPannelType,
   users,
+  loading,
 }) => {
   return (
     <Wrapper maxWidth="sm">
@@ -61,6 +69,9 @@ export const CreateTemplate: React.FC<Props> = ({
         pannelType={pannelType}
         users={users}
       />
+      <Drawer open={loading}>
+        <CircularProgress color="inherit" />
+      </Drawer>
     </Wrapper>
   )
 }
