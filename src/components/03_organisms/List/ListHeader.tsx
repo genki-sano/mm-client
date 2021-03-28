@@ -1,28 +1,35 @@
 import React from 'react'
-import moment from 'moment'
+import {
+  format,
+  startOfMonth,
+  endOfMonth,
+  subMonths,
+  addMonths,
+} from 'date-fns'
 import { ListHeaderPresenter } from 'components/03_organisms/List/ListHeader/Presenter'
 import { RootState, useSelector } from 'lib/store'
 
 interface Props {
   loading: boolean
-  date: string
+  date: Date
 }
 
 export const ListHeader: React.FC<Props> = ({ loading, date }) => {
   const users = useSelector((store: RootState) => store.entities.users)
   const totals = useSelector((store: RootState) => store.appList.totals)
 
-  const startDate = moment(date).startOf('month')
-  const endDate = moment(date).endOf('month')
+  const startDate = startOfMonth(date)
+  const endDate = endOfMonth(date)
 
-  const lastMonth = moment(date).subtract(1, 'month').format('YYYYMM')
-  const nextMonth = moment(date).add(1, 'month').format('YYYYMM')
+  const lastMonth = subMonths(date, 1)
+  const nextMonth = addMonths(date, 1)
 
+  const formatType = 'yyyyMM'
   const lastTo = {
-    pathname: `/list/${lastMonth}`,
+    pathname: `/list/${format(lastMonth, formatType)}`,
   }
   const nextTo = {
-    pathname: `/list/${nextMonth}`,
+    pathname: `/list/${format(nextMonth, formatType)}`,
   }
 
   return (
@@ -30,6 +37,7 @@ export const ListHeader: React.FC<Props> = ({ loading, date }) => {
       loading={loading}
       users={users}
       totals={totals}
+      formatType="yyyy/MM/dd"
       startDate={startDate}
       endDate={endDate}
       lastTo={lastTo}

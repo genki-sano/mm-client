@@ -33,7 +33,7 @@ const IconLink = styled(Link)`
 
 interface Props {
   loading: boolean
-  date: string
+  date: Date
 }
 
 export const ListTemplate: React.FC<Props> = ({ loading, date }) => {

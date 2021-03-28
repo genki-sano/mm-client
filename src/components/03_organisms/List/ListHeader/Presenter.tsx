@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { LocationDescriptor } from 'history'
-import { Moment } from 'moment'
+import { format } from 'date-fns'
 import styled from 'styled-components'
 import AppBar from '@material-ui/core/AppBar'
 import Grid from '@material-ui/core/Grid'
@@ -40,17 +40,27 @@ interface Props {
   loading: boolean
   users: NormalizedUsers | null
   totals: NormalizedTotals | null
-  startDate: Moment
-  endDate: Moment
+  formatType: string
+  startDate: Date
+  endDate: Date
   lastTo: LocationDescriptor
   nextTo: LocationDescriptor
 }
 
 export const ListHeaderPresenter: React.FC<Props> = (props) => {
-  const { loading, users, totals, startDate, endDate, lastTo, nextTo } = props
+  const {
+    loading,
+    users,
+    totals,
+    formatType,
+    startDate,
+    endDate,
+    lastTo,
+    nextTo,
+  } = props
 
-  const formatType = 'YYYY/MM/DD'
-  const term = `${startDate.format(formatType)} - ${endDate.format(formatType)}`
+  const formatStartDate = format(startDate, formatType)
+  const formatEndDate = format(endDate, formatType)
 
   return (
     <div>
@@ -62,7 +72,7 @@ export const ListHeaderPresenter: React.FC<Props> = (props) => {
             </IconLink>
           </IconButton>
           <TitleText noWrap align="center">
-            {term}
+            {`${formatStartDate} - ${formatEndDate}`}
           </TitleText>
           <IconButton aria-label="next" color="inherit">
             <IconLink to={nextTo}>
