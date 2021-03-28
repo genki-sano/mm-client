@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { CategoryPannel } from 'components/03_organisms/Create/CreatePannel/CategoryPannel'
 import { UserPannel } from 'components/03_organisms/Create/CreatePannel/UserPannel'
 import { PaymentPannel } from 'components/03_organisms/Create/CreatePannel/PaymentPannel'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { NormalizedUsers } from 'lib/store/slices/entities'
 import { theme } from 'lib/theme'
 

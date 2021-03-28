@@ -2,7 +2,7 @@ import React from 'react'
 import { Controller, UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import { NumberField } from 'components/01_atoms/NumberField'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled.div`

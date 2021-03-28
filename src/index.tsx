@@ -6,10 +6,11 @@ import {
   ThemeProvider as MaterialThemeProvider,
   StylesProvider,
 } from '@material-ui/styles'
-import CssBaseline from '@material-ui/core/CssBaseline'
+import { CssBaseline } from '@material-ui/core'
 import { App } from 'components/App'
-import { theme } from 'lib/theme'
+import { DatePickerProvider } from 'contexts/DatePickerProvider'
 import { createStore } from 'lib/store'
+import { theme } from 'lib/theme'
 
 const preloadedState = {
   appAuth: {
@@ -25,8 +26,10 @@ ReactDOM.render(
       <StylesProvider injectFirst>
         <MaterialThemeProvider theme={theme}>
           <StyledThemeProvider theme={theme}>
-            <CssBaseline />
-            <App />
+            <DatePickerProvider>
+              <CssBaseline />
+              <App />
+            </DatePickerProvider>
           </StyledThemeProvider>
         </MaterialThemeProvider>
       </StylesProvider>

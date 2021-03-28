@@ -51,14 +51,14 @@ export const CategoryButton: React.FC<Props> = ({
         <Typography>{altText || text}</Typography>
       </PannelItemSelect>
     )
-  } else {
-    return (
-      <PannelItem onClick={() => setCategory(text)}>
-        <IconWapper>
-          <CategoryIcon category={text} />
-        </IconWapper>
-        <Typography>{altText || text}</Typography>
-      </PannelItem>
-    )
   }
+
+  return (
+    <PannelItem onClick={() => setCategory(text)}>
+      <IconWapper>
+        <CategoryIcon category={text} />
+      </IconWapper>
+      <Typography>{altText || text}</Typography>
+    </PannelItem>
+  )
 }

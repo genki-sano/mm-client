@@ -7,7 +7,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
 import CheckIcon from '@material-ui/icons/Check'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { NormalizedUsers, UserType } from 'lib/store/slices/entities'
 import { theme } from 'lib/theme'
 

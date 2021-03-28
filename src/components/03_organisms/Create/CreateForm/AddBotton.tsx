@@ -1,7 +1,7 @@
 import React from 'react'
 import { UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled.button`

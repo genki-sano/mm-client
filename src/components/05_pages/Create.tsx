@@ -2,8 +2,7 @@ import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import moment from 'moment'
-import { CreateTemplate } from 'components/04_templates/CreateTemplate'
-import { ErrorPage } from 'components/05_pages/ErrorPage'
+import { CreateTemplate } from 'components/04_templates/Create'
 import { RootState, useSelector } from 'lib/store'
 import { getAuthUser } from 'lib/service/user'
 import { onSubmit } from 'lib/service/create'
@@ -51,7 +50,7 @@ export const CreatePage: React.FC = () => {
   const [pannelType, setPannelType] = useState<string>('price')
 
   if (!users) {
-    return <ErrorPage />
+    return null
   }
 
   return (

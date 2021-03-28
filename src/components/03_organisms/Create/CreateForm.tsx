@@ -8,7 +8,7 @@ import { CategoryInput } from 'components/03_organisms/Create/CreateForm/Categor
 import { DateInput } from 'components/03_organisms/Create/CreateForm/DateInput'
 import { UserInput } from 'components/03_organisms/Create/CreateForm/UserInput'
 import { MemoInput } from 'components/03_organisms/Create/CreateForm/MemoInput'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { NormalizedUsers } from 'lib/store/slices/entities'
 import { theme } from 'lib/theme'
 

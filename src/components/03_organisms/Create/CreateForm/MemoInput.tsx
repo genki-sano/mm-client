@@ -3,7 +3,7 @@ import { Controller, UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import SubjectIcon from '@material-ui/icons/Subject'
 import { TextField } from 'components/01_atoms/TextField'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled.div`

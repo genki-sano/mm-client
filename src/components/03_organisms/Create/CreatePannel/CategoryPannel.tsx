@@ -3,7 +3,7 @@ import { UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import Grid from '@material-ui/core/Grid'
 import { CategoryButton } from 'components/02_molecules/CategoryButton'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { Category } from 'lib/store/slices/entities'
 
 const Wrapper = styled(Grid)`

@@ -2,7 +2,7 @@ import React from 'react'
 import { Controller, UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import { TextField } from 'components/01_atoms/TextField'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 import { CategoryIcon } from 'components/01_atoms/CategoryIcon'
 import { theme } from 'lib/theme'
 

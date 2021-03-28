@@ -9,7 +9,7 @@ import { theme } from 'lib/theme'
 import { CreateHeader } from 'components/03_organisms/Create/CreateHeader'
 import { CreateForm } from 'components/03_organisms/Create/CreateForm'
 import { CreatePannel } from 'components/03_organisms/Create/CreatePannel'
-import { PaymentCreateForm } from 'components/05_pages/CreatePage'
+import { PaymentCreateForm } from 'components/05_pages/Create'
 
 const Wrapper = styled(Container)`
   min-height: 100vh;

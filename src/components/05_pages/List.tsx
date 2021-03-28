@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import moment from 'moment'
-import { ListTemplate } from 'components/04_templates/ListTemplate'
+import { ListTemplate } from 'components/04_templates/List'
 import { fetchList } from 'lib/service/list'
 import { RootState, useSelector } from 'lib/store'
 
