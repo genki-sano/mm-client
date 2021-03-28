@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
-import moment from 'moment'
+import { format } from 'date-fns'
 import { CreateTemplate } from 'components/04_templates/Create'
 import { RootState, useSelector } from 'lib/store'
 import { getAuthUser } from 'lib/service/user'
@@ -42,7 +42,7 @@ export const CreatePage: React.FC = () => {
     await dispatch(
       onSubmit(data.user, data.category, data.price, data.date, data.memo),
     )
-    const formatMonth = moment(data.date).format('YYYYMM')
+    const formatMonth = format(data.date, 'yyyyMM')
     await history.push(`/list/${formatMonth}`)
   })
 
