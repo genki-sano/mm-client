@@ -1,3 +1,4 @@
+import { isMatch } from 'date-fns'
 import { getPaymentByDate, PaymentResponse } from 'lib/api/payment'
 import { AppThunk } from 'lib/store'
 import { actions } from 'lib/store/slices'
@@ -7,7 +8,6 @@ import {
 } from 'lib/store/slices/app/list'
 import { Category, NormalizedPayments } from 'lib/store/slices/entities'
 import { createUserType } from 'lib/service/user'
-import moment from 'moment'
 
 interface Result {
   paymentIds: NormalizedPaymentIds
@@ -31,22 +31,25 @@ const normalize = (data: PaymentResponse[]): NormalizedSchema => {
   }
 
   data.forEach((payment: PaymentResponse) => {
+    // 不正な形式で帰ってくるものは取得しない
+    if (!isMatch(payment.date, 'yyyy/MM/dd')) {
+      return
+    }
     const userType = createUserType(payment.user_id)
-    const formatDate = moment(payment.date, 'YYYY/MM/DD').format('YYYY/MM/DD')
 
     entities[payment.id] = {
       id: payment.id,
       userType: userType,
       category: payment.category as Category,
       price: payment.price,
-      date: formatDate,
+      date: payment.date,
       memo: payment.memo,
     }
 
-    if (!paymentIds[formatDate]) {
-      paymentIds[formatDate] = [payment.id]
+    if (!paymentIds[payment.date]) {
+      paymentIds[payment.date] = [payment.id]
     } else {
-      paymentIds[formatDate].push(payment.id)
+      paymentIds[payment.date].push(payment.id)
     }
 
     totals[userType]['amounts'] += payment.price

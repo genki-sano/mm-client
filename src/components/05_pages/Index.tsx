@@ -1,9 +1,9 @@
 import React from 'react'
 import { Redirect } from 'react-router'
-import moment from 'moment'
+import { format } from 'date-fns'
 
 export const IndexPage: React.FC = () => {
-  const formatDate = moment().format('YYYYMM')
+  const formatDate = format(new Date(), 'yyyyMM')
   const to = {
     pathname: `/list/${formatDate}`,
   }
