@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
 import { useParams } from 'react-router'
 import { parse } from 'date-fns'
 import { ListTemplate } from 'components/04_templates/List'
+import { useDispatch, useSelector } from 'lib/hooks'
 import { fetchList } from 'lib/service/list'
-import { useSelector } from 'lib/hooks'
 
 export const ListPage: React.FC = () => {
   const loading = useSelector((store) => store.appList.loading)

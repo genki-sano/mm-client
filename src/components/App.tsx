@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch } from 'lib/hooks'
 import { signIn } from 'lib/service/auth'
 import { setUser } from 'lib/service/user'
 import { Router } from 'routes/Router'

@@ -3,11 +3,10 @@ import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import { format } from 'date-fns'
 import { CreateTemplate } from 'components/04_templates/Create'
-import { useSelector } from 'lib/hooks'
+import { useDispatch, useSelector } from 'lib/hooks'
 import { getAuthUser } from 'lib/service/user'
 import { onSubmit } from 'lib/service/create'
 import { Category, UserType } from 'lib/store/slices/entities'
-import { useDispatch } from 'react-redux'
 
 export interface PaymentCreateForm {
   user: UserType
