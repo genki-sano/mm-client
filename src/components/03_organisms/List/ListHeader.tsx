@@ -7,7 +7,7 @@ import {
   addMonths,
 } from 'date-fns'
 import { ListHeaderPresenter } from 'components/03_organisms/List/ListHeader/Presenter'
-import { RootState, useSelector } from 'lib/store'
+import { useSelector } from 'lib/hooks'
 
 interface Props {
   loading: boolean
@@ -15,8 +15,8 @@ interface Props {
 }
 
 export const ListHeader: React.FC<Props> = ({ loading, date }) => {
-  const users = useSelector((store: RootState) => store.entities.users)
-  const totals = useSelector((store: RootState) => store.appList.totals)
+  const users = useSelector((store) => store.entities.users)
+  const totals = useSelector((store) => store.appList.totals)
 
   const startDate = startOfMonth(date)
   const endDate = endOfMonth(date)

@@ -2,15 +2,13 @@ import React from 'react'
 import { Route, RouteProps } from 'react-router-dom'
 import { ForbiddenPage } from 'components/05_pages/Error/Forbidden'
 import { LoadingPage } from 'components/05_pages/Loading'
-import { RootState, useSelector } from 'lib/store'
+import { useSelector } from 'lib/hooks'
 
 export const PrivateRoute: React.FC<RouteProps> = ({
   component,
   ...options
 }) => {
-  const { authUserId, loading } = useSelector(
-    (store: RootState) => store.appAuth,
-  )
+  const { authUserId, loading } = useSelector((store) => store.appAuth)
 
   if (loading) {
     return <Route component={LoadingPage} {...options} />

@@ -1,8 +1,4 @@
 import {
-  useSelector as rawUseSelector,
-  TypedUseSelectorHook,
-} from 'react-redux'
-import {
   configureStore,
   ThunkAction,
   Action,
@@ -16,10 +12,9 @@ export const createStore = (preloadedState?: PreloadedState) =>
     preloadedState: preloadedState,
   })
 
-export const useSelector: TypedUseSelectorHook<RootState> = rawUseSelector
-
-export type PreloadedState = ConfigureStoreOptions<RootState>['preloadedState']
 export type RootState = ReturnType<typeof rootReducer>
+export type PreloadedState = ConfigureStoreOptions<RootState>['preloadedState']
+export type AppDispatch = ReturnType<typeof createStore>['dispatch']
 export type AppThunk<ReturnType = void> = ThunkAction<
   ReturnType,
   RootState,

@@ -1,13 +1,13 @@
 import React from 'react'
 import Alert from '@material-ui/lab/Alert'
 import Wrapper from '@material-ui/core/Snackbar'
-import { RootState, useSelector } from 'lib/store'
+import { useSelector } from 'lib/hooks'
 import { useDispatch } from 'react-redux'
 import { actions } from 'lib/store/slices'
 
 export const Snackbar: React.FC = () => {
   const { isOpen, alertType, alertText } = useSelector(
-    (store: RootState) => store.uiSnackbar,
+    (store) => store.uiSnackbar,
   )
 
   const dispatch = useDispatch()

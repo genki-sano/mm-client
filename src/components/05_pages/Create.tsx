@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form'
 import { useHistory } from 'react-router-dom'
 import { format } from 'date-fns'
 import { CreateTemplate } from 'components/04_templates/Create'
-import { RootState, useSelector } from 'lib/store'
+import { useSelector } from 'lib/hooks'
 import { getAuthUser } from 'lib/service/user'
 import { onSubmit } from 'lib/service/create'
 import { Category, UserType } from 'lib/store/slices/entities'
@@ -18,9 +18,9 @@ export interface PaymentCreateForm {
 }
 
 export const CreatePage: React.FC = () => {
-  const authUserId = useSelector((store: RootState) => store.appAuth.authUserId)
-  const users = useSelector((store: RootState) => store.entities.users)
-  const loading = useSelector((store: RootState) => store.appCreate.loading)
+  const authUserId = useSelector((store) => store.appAuth.authUserId)
+  const users = useSelector((store) => store.entities.users)
+  const loading = useSelector((store) => store.appCreate.loading)
 
   const defaultValues: PaymentCreateForm = {
     user: getAuthUser(users, authUserId) || 'woman',
