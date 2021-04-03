@@ -21,7 +21,7 @@
     "react-redux": "^7.2.0",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "4.0.2",
+    "react-scripts": "^4.0.3",
     "styled-components": "^5.2.3"
   },
   "devDependencies": {
@@ -40,14 +40,16 @@
     "typescript": "^4.2.3"
   },
   "scripts": {
+    "prepare": "husky install",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "prepare": "husky install",
+    "lint": "yarn lint:eslint && yarn lint:prettier",
     "lint-staged": "lint-staged",
     "lint:eslint": "eslint './src/**/*.{ts,tsx}'",
-    "lint:prettier": "prettier --check './src/**/*.{ts,tsx}'"
+    "lint:prettier": "prettier -c './src/**/*.{ts,tsx}'",
+    "fix:eslint": "yarn lint:eslint --fix",
+    "fix:prettier": "yarn lint:prettier --write"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -66,13 +68,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": [
-      "prettier --write"
+      "yarn fix:eslint",
+      "yarn fix:prettier"
     ]
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "tabWidth": 2,
-    "trailingComma": "all"
   }
 }
