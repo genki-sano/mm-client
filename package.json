@@ -45,7 +45,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prepare": "husky install",
-    "lint-staged": "lint-staged"
+    "lint-staged": "lint-staged",
+    "lint:eslint": "eslint './src/**/*.{ts,tsx}'",
+    "lint:prettier": "prettier --check './src/**/*.{ts,tsx}'"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -17,6 +17,13 @@ jobs:
         with:
           node-version: '14.x'
 
+  lint:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -29,11 +36,21 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
+      - name: Install Dependencies
+        run: yarn --prefer-offline
+
+      - name: Run eslint
+        run: yarn lint:eslint
+
+      - name: Run prettier
+        run: yarn lint:prettier
+
   deploy:
-    needs: setup
+    needs: [setup, lint]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
       - name: Install Dependencies
         run: yarn --prefer-offline
