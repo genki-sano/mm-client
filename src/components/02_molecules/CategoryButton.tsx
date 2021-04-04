@@ -5,23 +5,20 @@ import { Category } from 'lib/store/slices/entities'
 import { theme } from 'lib/theme'
 
 const PannelItem = styled.div`
-  height: ${`${theme.spacing(8)}px`};
   width: 100%;
+  height: ${`${theme.spacing(8)}px`};
   padding: 6px;
   text-align: center;
   cursor: pointer;
   user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 `
 const PannelItemSelect = styled(PannelItem)`
   background-color: ${theme.palette.primary.dark};
   border-radius: ${`${theme.shape.borderRadius}px`};
 `
 const IconWapper = styled.div`
-  line-height: 1;
   font-size: 32px;
+  line-height: 1;
   color: ${theme.palette.primary.contrastText};
 `
 const Typography = styled.span`

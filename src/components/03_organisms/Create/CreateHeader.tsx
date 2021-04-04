@@ -12,8 +12,8 @@ const ArrowBackIconButton = styled(IconButton)`
   margin-right: ${`${theme.spacing(2)}px`};
 `
 const IconLink = styled(Link)`
-  height: ${`${theme.spacing(3)}px`};
   width: ${`${theme.spacing(3)}px`};
+  height: ${`${theme.spacing(3)}px`};
   color: ${theme.palette.primary.contrastText};
 `
 

@@ -3,10 +3,10 @@ import styled from 'styled-components'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 const Wrapper = styled.div`
-  height: 10rem;
-  width: 100%;
-  text-align: center;
   display: table;
+  width: 100%;
+  height: 10rem;
+  text-align: center;
 `
 const Inner = styled.div`
   display: table-cell;

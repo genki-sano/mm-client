@@ -19,21 +19,21 @@ const TitleText = styled(Typography)`
   flex-grow: 1;
 `
 const IconLink = styled(Link)`
-  height: ${`${theme.spacing(3)}px`};
   width: ${`${theme.spacing(3)}px`};
+  height: ${`${theme.spacing(3)}px`};
   color: ${theme.palette.primary.contrastText};
 `
 const Wrapper = styled(Grid)`
   padding: ${theme.spacing(2, 1)};
-  text-align: center;
   color: ${theme.palette.primary.contrastText};
+  text-align: center;
   background-color: ${theme.palette.primary.main};
 `
 const PriceText = styled(Typography)`
   display: inline-block;
+  margin-right: ${`${theme.spacing(1)}px`};
   font-size: 1.8rem;
   font-weight: bold;
-  margin-right: ${`${theme.spacing(1)}px`};
 `
 
 interface Props {

@@ -10,24 +10,24 @@ import { ListHeader } from 'components/03_organisms/List/ListHeader'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled(Container)`
-  background-color: ${theme.palette.background.paper};
   min-height: 100vh;
   padding: 0;
+  background-color: ${theme.palette.background.paper};
 `
 const ListWrapper = styled(Container)`
-  background-color: inherit;
   padding-right: ${`${theme.spacing(1)}px`};
   padding-left: ${`${theme.spacing(1)}px`};
+  background-color: inherit;
 `
 const FloatingActionButton = styled(Fab)`
   position: fixed;
-  bottom: ${`${theme.spacing(3)}px`};
   right: ${`${theme.spacing(2)}px`};
+  bottom: ${`${theme.spacing(3)}px`};
   z-index: ${theme.zIndex.modal};
 `
 const IconLink = styled(Link)`
-  height: ${`${theme.spacing(3)}px`};
   width: ${`${theme.spacing(3)}px`};
+  height: ${`${theme.spacing(3)}px`};
   color: ${theme.palette.primary.contrastText};
 `
 

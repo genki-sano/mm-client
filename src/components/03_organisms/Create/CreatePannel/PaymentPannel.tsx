@@ -10,15 +10,12 @@ const Wrapper = styled.div`
 `
 const PannelItem = styled.div`
   display: inline-block;
-  height: ${`${theme.spacing(8)}px`};
   width: calc(100% / 3);
+  height: ${`${theme.spacing(8)}px`};
   line-height: ${`${theme.spacing(8)}px`};
   text-align: center;
   cursor: pointer;
   user-select: none;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 `
 const Typography = styled.span`
   font-size: 32px;

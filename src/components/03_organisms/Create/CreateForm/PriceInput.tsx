@@ -6,17 +6,17 @@ import { PaymentCreateForm } from 'components/05_pages/Create'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
   position: relative;
+  display: flex;
+  width: 100%;
 `
 const IconWapper = styled.div`
   display: inline-flex;
   min-width: ${`${theme.spacing(5)}px`};
-  font-size: ${theme.typography.h4.fontSize};
   padding-top: ${`${theme.spacing(2)}px`};
   padding-right: ${`${theme.spacing(1)}px`};
   padding-left: ${`${theme.spacing(1)}px`};
+  font-size: ${theme.typography.h4.fontSize};
 `
 const UnitItem = styled(NumberField)`
   font-size: ${theme.typography.h3.fontSize};

@@ -5,19 +5,19 @@ import { PaymentCreateForm } from 'components/05_pages/Create'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled.button`
-  height: ${`${theme.spacing(7)}px`};
-  line-height: ${`${theme.spacing(7)}px`};
-  width: 100%;
-  font-size: 16px;
-  color: ${theme.palette.primary.contrastText};
-  background-color: ${theme.palette.primary.main};
-  text-align: center;
-  cursor: pointer;
   position: fixed;
   bottom: 0;
-  border: 0;
-  margin: 0;
+  width: 100%;
+  height: ${`${theme.spacing(7)}px`};
   padding: 0;
+  margin: 0;
+  font-size: 16px;
+  line-height: ${`${theme.spacing(7)}px`};
+  color: ${theme.palette.primary.contrastText};
+  text-align: center;
+  cursor: pointer;
+  background-color: ${theme.palette.primary.main};
+  border: 0;
   @media (min-width: 600px) {
     max-width: 600px;
   }

@@ -18,8 +18,8 @@ const Wrapper = styled.div`
   color: ${theme.palette.primary.contrastText};
 `
 const IconWrapper = styled(ListItemIcon)`
-  color: ${theme.palette.primary.contrastText};
   min-width: 0;
+  color: ${theme.palette.primary.contrastText};
 `
 
 interface Props {

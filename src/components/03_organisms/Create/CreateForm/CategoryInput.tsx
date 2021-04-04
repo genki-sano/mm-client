@@ -7,26 +7,26 @@ import { CategoryIcon } from 'components/01_atoms/CategoryIcon'
 import { theme } from 'lib/theme'
 
 const Wrapper = styled.div`
-  width: 100%;
-  display: flex;
   position: relative;
   box-sizing: border-box;
-  text-align: left;
+  display: flex;
   align-items: center;
   justify-content: flex-start;
-  text-decoration: none;
+  width: 100%;
   padding: ${theme.spacing(1, 2)};
+  text-align: left;
+  text-decoration: none;
 `
 const IconWapper = styled.div`
-  color: rgba(0, 0, 0, 0.54);
   display: inline-flex;
-  min-width: ${`${theme.spacing(6)}px`};
   flex-shrink: 0;
+  min-width: ${`${theme.spacing(6)}px`};
+  color: rgba(0, 0, 0, 0.54);
 `
 const InputWapper = styled.div`
+  width: 100%;
   margin-top: ${`${theme.spacing(0.5)}px`};
   margin-bottom: ${`${theme.spacing(0.5)}px`};
-  width: 100%;
 `
 
 interface Props {

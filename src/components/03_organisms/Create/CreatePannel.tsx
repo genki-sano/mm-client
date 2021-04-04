@@ -11,23 +11,23 @@ import { theme } from 'lib/theme'
 const Wrapper = styled.div`
   position: fixed;
   bottom: 0;
-  background-color: ${theme.palette.primary.main};
-  height: 320px;
-  width: 100%;
   z-index: ${theme.zIndex.drawer};
+  width: 100%;
+  height: 320px;
+  background-color: ${theme.palette.primary.main};
   @media (min-width: 600px) {
     max-width: 600px;
   }
 `
 const PanelBotton = styled.div`
-  background-color: ${theme.palette.primary.dark};
-  color: ${theme.palette.primary.contrastText};
-  height: ${`${theme.spacing(7)}px`};
-  line-height: ${`${theme.spacing(7)}px`};
   width: 100%;
+  height: ${`${theme.spacing(7)}px`};
   font-size: 16px;
+  line-height: ${`${theme.spacing(7)}px`};
+  color: ${theme.palette.primary.contrastText};
   text-align: center;
   cursor: pointer;
+  background-color: ${theme.palette.primary.dark};
 `
 
 interface Props {

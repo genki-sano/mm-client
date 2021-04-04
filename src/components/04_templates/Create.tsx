@@ -12,11 +12,11 @@ import { CreatePannel } from 'components/03_organisms/Create/CreatePannel'
 import { PaymentCreateForm } from 'components/05_pages/Create'
 
 const Wrapper = styled(Container)`
-  min-height: 100vh;
   min-width: 310px;
+  min-height: 100vh;
   padding-top: 0;
-  padding-bottom: ${`${theme.spacing(7)}px`};
   padding-right: 0;
+  padding-bottom: ${`${theme.spacing(7)}px`};
   padding-left: 0;
   background-color: ${theme.palette.background.paper};
 `
