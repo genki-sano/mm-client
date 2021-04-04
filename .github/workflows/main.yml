@@ -11,14 +11,11 @@ jobs:
     outputs:
       dir: ${{ steps.yarn-cache-dir-path.outputs.dir }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
       - name: Setup Node.js
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: '14.x'
-
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
         run: echo "::set-output name=dir::$(yarn cache dir)"
@@ -27,9 +24,7 @@ jobs:
     needs: setup
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
       - name: Cache node modules
         uses: actions/cache@v2
         with:
@@ -37,16 +32,12 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - name: Install Dependencies
         run: yarn --prefer-offline
-
       - name: Run stylelint
         run: yarn lint:css
-
       - name: Run eslint
         run: yarn lint:eslint
-
       - name: Run prettier
         run: yarn lint:prettier
 
@@ -54,9 +45,7 @@ jobs:
     needs: [setup, lint]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
+      - uses: actions/checkout@v2
       - name: Cache node modules
         uses: actions/cache@v2
         with:
@@ -64,10 +53,8 @@ jobs:
           key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-yarn-
-
       - name: Install Dependencies
         run: yarn --prefer-offline
-
       - name: Run build
         run: yarn build
         env:
@@ -80,7 +67,6 @@ jobs:
           REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
           REACT_APP_FIREBASE_SENDER_ID: ${{ secrets.REACT_APP_FIREBASE_SENDER_ID }}
           REACT_APP_FIREBASE_APPID: ${{ secrets.REACT_APP_FIREBASE_APPID }}
-
       - name: Deploy to netlify
         uses: netlify/actions/cli@master
         env:
