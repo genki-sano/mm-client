@@ -12,13 +12,7 @@ import { DatePickerProvider } from 'contexts/DatePickerProvider'
 import { createStore } from 'lib/store'
 import { theme } from 'lib/theme'
 
-const preloadedState = {
-  appAuth: {
-    loading: true,
-    authUserId: null,
-  },
-}
-const store = createStore(preloadedState)
+const store = createStore()
 
 ReactDOM.render(
   <React.StrictMode>

@@ -8,9 +8,11 @@ export const PrivateRoute: React.FC<RouteProps> = ({
   component,
   ...options
 }) => {
-  const { authUserId, loading } = useSelector((store) => store.appAuth)
+  const { isAuthChecked, isUsersChecked, authUserId } = useSelector(
+    (store) => store.appAuth,
+  )
 
-  if (loading) {
+  if (!isAuthChecked || !isUsersChecked) {
     return <Route component={LoadingPage} {...options} />
   }
   if (!authUserId) {

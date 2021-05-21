@@ -1,12 +1,14 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
 interface State {
-  loading: boolean
+  isAuthChecked: boolean
+  isUsersChecked: boolean
   authUserId: string | null
 }
 
 const initialState: State = {
-  loading: false,
+  isAuthChecked: false,
+  isUsersChecked: false,
   authUserId: null,
 }
 
@@ -23,11 +25,11 @@ const authSlice = createSlice({
   name: 'app/auth',
   initialState: initialState,
   reducers: {
-    startAuthLoading(state) {
-      state.loading = true
-    },
     endAuthLoading(state) {
-      state.loading = false
+      state.isAuthChecked = true
+    },
+    endUsersLoading(state) {
+      state.isUsersChecked = true
     },
     setAuthUserId(state, { payload }: PayloadAction<string>) {
       state.authUserId = payload

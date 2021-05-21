@@ -104,6 +104,7 @@ export const setUser = (): AppThunk => async (dispatch) => {
     dispatch(actions.setUsers(items))
     return
   }
+
   try {
     const res = await getAllUser()
     const { entities } = normalize(res.data.users)
@@ -116,5 +117,7 @@ export const setUser = (): AppThunk => async (dispatch) => {
   } catch (err) {
     console.error(err)
     actions.clearUsers()
+  } finally {
+    dispatch(actions.endUsersLoading())
   }
 }
