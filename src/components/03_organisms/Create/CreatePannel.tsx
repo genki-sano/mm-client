@@ -52,15 +52,13 @@ export const CreatePannel: React.FC<Props> = ({
   }
   return (
     <Wrapper>
-      {(() => {
-        if (pannelType === 'user') {
-          return <UserPannel watch={watch} setValue={setValue} users={users} />
-        } else if (pannelType === 'category') {
-          return <CategoryPannel watch={watch} setValue={setValue} />
-        } else {
-          return <PaymentPannel watch={watch} setValue={setValue} />
-        }
-      })()}
+      {pannelType === 'user' ? (
+        <UserPannel watch={watch} setValue={setValue} users={users} />
+      ) : pannelType === 'category' ? (
+        <CategoryPannel watch={watch} setValue={setValue} />
+      ) : (
+        <PaymentPannel watch={watch} setValue={setValue} />
+      )}
       <PanelBotton onClick={() => togglePannelOpen(false)}>
         確認する
       </PanelBotton>
