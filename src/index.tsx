@@ -9,9 +9,11 @@ import {
 import { CssBaseline } from '@material-ui/core'
 import { App } from 'components/App'
 import { DatePickerProvider } from 'contexts/DatePickerProvider'
+import { firebaseApp } from 'lib/external/firebase'
 import { createStore } from 'lib/store'
 import { theme } from 'lib/theme'
 
+firebaseApp.init()
 const store = createStore()
 
 ReactDOM.render(
