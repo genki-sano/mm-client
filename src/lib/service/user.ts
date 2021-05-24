@@ -112,7 +112,6 @@ export const setUser = (): AppThunk => async (dispatch) => {
     if (entities) {
       dispatch(actions.setUsers(entities))
       setItem(SESSION_KEY_USERS, entities)
-      return
     }
   } catch (err) {
     console.error(err)

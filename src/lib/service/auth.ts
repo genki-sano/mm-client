@@ -1,23 +1,23 @@
-import liff from '@line/liff'
 import { verifyToken } from 'lib/api/auth'
-import { auth } from 'lib/firebase/init'
+import { firebaseApp } from 'lib/external/firebase'
+import { liffApp } from 'lib/external/liff'
 import { AppThunk } from 'lib/store'
 import { actions } from 'lib/store/slices'
 
-const getLiffAccessToken = async (liffId: string): Promise<string | null> => {
-  await liff.init({ liffId: liffId })
-  const isLoggedIn = await liff.isLoggedIn()
+const getLiffAccessToken = async (): Promise<string | null> => {
+  await liffApp.init()
+  const isLoggedIn = await liffApp.isLoggedIn()
   if (!isLoggedIn) {
-    await liff.login({})
+    await liffApp.login({})
   }
-  const accessToken = await liff.getAccessToken()
+  const accessToken = await liffApp.getAccessToken()
   return accessToken
 }
 
 const signInWithCustomToken = async (
   token: string,
 ): Promise<firebase.default.User> => {
-  const res = await auth.signInWithCustomToken(token)
+  const res = await firebaseApp.signInWithCustomToken(token)
   if (!res.user) {
     throw new Error('カスタムトークンでのログインに失敗しました。')
   }
@@ -30,8 +30,7 @@ const signInWithFirebaseUser = async (
   if (user) {
     return user
   }
-  const liffId = process.env.REACT_APP_LIFF_ID || ''
-  const accessToken = await getLiffAccessToken(liffId)
+  const accessToken = await getLiffAccessToken()
   if (!accessToken) {
     throw new Error('アクセストークンを取得できませんでした。')
   }
@@ -41,7 +40,7 @@ const signInWithFirebaseUser = async (
 }
 
 export const signIn = (): AppThunk => async (dispatch) => {
-  auth.onAuthStateChanged(async (user) => {
+  firebaseApp.onAuthStateChanged(async (user) => {
     const host = document.location.hostname
     if (host === 'localhost' || host === '127.0.0.1') {
       dispatch(actions.setAuthUserId('local'))
@@ -61,6 +60,6 @@ export const signIn = (): AppThunk => async (dispatch) => {
 }
 
 export const logout = (): AppThunk => async (dispatch) => {
-  auth.signOut()
+  firebaseApp.signOut()
   dispatch(actions.clearAuthUserId())
 }
