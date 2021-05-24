@@ -1,6 +1,6 @@
 # mm-client
 
-[![Deploy](https://github.com/genki-sano/mm-client/actions/workflows/deploy.yml/badge.svg)](https://github.com/genki-sano/mm-client/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/genki-sano/mm-client/actions/workflows/main.yml/badge.svg)](https://github.com/genki-sano/mm-client/actions/workflows/main.yml)
 
 ## Lisence
 
