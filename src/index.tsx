@@ -10,9 +10,11 @@ import { CssBaseline } from '@material-ui/core'
 import { App } from 'components/App'
 import { DatePickerProvider } from 'contexts/DatePickerProvider'
 import { firebaseApp } from 'lib/external/firebase'
+import { liffApp } from 'lib/external/liff'
 import { createStore } from 'lib/store'
 import { theme } from 'lib/theme'
 
+liffApp.init()
 firebaseApp.init()
 const store = createStore()
 

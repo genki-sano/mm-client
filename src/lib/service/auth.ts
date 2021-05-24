@@ -5,7 +5,6 @@ import { AppThunk } from 'lib/store'
 import { actions } from 'lib/store/slices'
 
 const getLiffAccessToken = async (): Promise<string | null> => {
-  await liffApp.init()
   const isLoggedIn = await liffApp.isLoggedIn()
   if (!isLoggedIn) {
     await liffApp.login({})
