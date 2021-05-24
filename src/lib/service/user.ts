@@ -102,6 +102,7 @@ export const setUser = (): AppThunk => async (dispatch) => {
   const items = getItem(SESSION_KEY_USERS)
   if (isValid(items)) {
     dispatch(actions.setUsers(items))
+    dispatch(actions.endUsersLoading())
     return
   }
 
