@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import { useDispatch } from 'lib/hooks'
 import { signIn } from 'lib/service/auth'
 import { setUser } from 'lib/service/user'

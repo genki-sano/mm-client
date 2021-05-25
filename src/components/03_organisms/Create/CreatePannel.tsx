@@ -1,4 +1,3 @@
-import React from 'react'
 import { UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import { CategoryPannel } from 'components/03_organisms/Create/CreatePannel/CategoryPannel'

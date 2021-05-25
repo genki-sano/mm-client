@@ -1,4 +1,3 @@
-import React from 'react'
 import AccountBalanceIcon from '@material-ui/icons/AccountBalance'
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney'
 import CategoryItemIcon from '@material-ui/icons/Category'

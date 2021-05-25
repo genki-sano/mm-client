@@ -1,4 +1,3 @@
-import React from 'react'
 import { Route, RouteProps } from 'react-router-dom'
 import { ForbiddenPage } from 'components/05_pages/Error/Forbidden'
 import { LoadingPage } from 'components/05_pages/Loading'

@@ -1,4 +1,3 @@
-import React from 'react'
 import { ListBodyError } from 'components/03_organisms/List/ListBody/Error'
 import { ListBodyLoading } from 'components/03_organisms/List/ListBody/Loading'
 import { useSelector } from 'lib/hooks'

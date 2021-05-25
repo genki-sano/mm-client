@@ -1,4 +1,3 @@
-import React from 'react'
 import NumberFormat, { NumberFormatProps } from 'react-number-format'
 import { TextField } from 'components/01_atoms/TextField'
 

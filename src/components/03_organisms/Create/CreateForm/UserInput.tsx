@@ -1,4 +1,3 @@
-import React from 'react'
 import { Controller, UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import PersonIcon from '@material-ui/icons/Person'

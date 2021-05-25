@@ -1,4 +1,3 @@
-import React from 'react'
 import { Controller, UseFormMethods } from 'react-hook-form'
 import styled from 'styled-components'
 import { NumberField } from 'components/01_atoms/NumberField'

@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { CategoryIcon } from 'components/01_atoms/CategoryIcon'
 import { Category } from 'lib/store/slices/entities'

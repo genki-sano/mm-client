@@ -1,4 +1,3 @@
-import React from 'react'
 import styled from 'styled-components'
 import { DatePicker as Wrapper, DatePickerProps } from '@material-ui/pickers'
 

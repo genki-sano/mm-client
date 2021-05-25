@@ -1,4 +1,3 @@
-import React from 'react'
 import Alert from '@material-ui/lab/Alert'
 import Wrapper from '@material-ui/core/Snackbar'
 import { useDispatch, useSelector } from 'lib/hooks'
