@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Container from '@material-ui/core/Container'
 import Typography from '@material-ui/core/Typography'
 import { theme } from 'lib/theme'

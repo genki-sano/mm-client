@@ -1,5 +1,5 @@
 import { UseFormMethods } from 'react-hook-form'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Divider from '@material-ui/core/Divider'
 import { AddBotton } from 'components/03_organisms/Create/CreateForm/AddBotton'
 import { PriceInput } from 'components/03_organisms/Create/CreateForm/PriceInput'

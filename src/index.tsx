@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
-import { ThemeProvider as StyledThemeProvider } from 'styled-components'
+import { ThemeProvider as StyledThemeProvider } from 'styled-components/macro'
 import {
   ThemeProvider as MaterialThemeProvider,
   StylesProvider,

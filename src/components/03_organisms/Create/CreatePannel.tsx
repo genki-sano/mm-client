@@ -1,5 +1,5 @@
 import { UseFormMethods } from 'react-hook-form'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { CategoryPannel } from 'components/03_organisms/Create/CreatePannel/CategoryPannel'
 import { UserPannel } from 'components/03_organisms/Create/CreatePannel/UserPannel'
 import { PaymentPannel } from 'components/03_organisms/Create/CreatePannel/PaymentPannel'

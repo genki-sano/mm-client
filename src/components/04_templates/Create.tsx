@@ -1,5 +1,5 @@
 import { UseFormMethods } from 'react-hook-form'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Backdrop from '@material-ui/core/Backdrop'
 import Container from '@material-ui/core/Container'
 import CircularProgress from '@material-ui/core/CircularProgress'

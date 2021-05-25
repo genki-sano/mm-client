@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { CategoryIcon } from 'components/01_atoms/CategoryIcon'
 import { Category } from 'lib/store/slices/entities'
 import { theme } from 'lib/theme'

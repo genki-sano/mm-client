@@ -1,5 +1,5 @@
 import { Controller, UseFormMethods } from 'react-hook-form'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import CalendarTodayIcon from '@material-ui/icons/CalendarToday'
 import { DatePicker } from 'components/01_atoms/DatePicker'
 import { PaymentCreateForm } from 'components/05_pages/Create'

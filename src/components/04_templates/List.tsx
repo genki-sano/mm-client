@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Container from '@material-ui/core/Container'
 import Fab from '@material-ui/core/Fab'
 import AddIcon from '@material-ui/icons/Add'

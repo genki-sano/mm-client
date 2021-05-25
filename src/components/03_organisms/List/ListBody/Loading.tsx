@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import CircularProgress from '@material-ui/core/CircularProgress'
 
 const Wrapper = styled.div`

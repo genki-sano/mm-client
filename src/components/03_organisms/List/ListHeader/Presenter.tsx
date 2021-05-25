@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import { LocationDescriptor } from 'history'
 import { format } from 'date-fns'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import AppBar from '@material-ui/core/AppBar'
 import Grid from '@material-ui/core/Grid'
 import Toolbar from '@material-ui/core/Toolbar'

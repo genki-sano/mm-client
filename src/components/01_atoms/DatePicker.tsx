@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { DatePicker as Wrapper, DatePickerProps } from '@material-ui/pickers'
 
 const TextField = styled.input`

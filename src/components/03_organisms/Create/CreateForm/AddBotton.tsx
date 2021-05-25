@@ -1,5 +1,5 @@
 import { UseFormMethods } from 'react-hook-form'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { PaymentCreateForm } from 'components/05_pages/Create'
 import { theme } from 'lib/theme'
 

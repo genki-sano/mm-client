@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Alert from '@material-ui/lab/Alert'
 import { theme } from 'lib/theme'
 
