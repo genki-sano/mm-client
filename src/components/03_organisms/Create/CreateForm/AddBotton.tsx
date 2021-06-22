@@ -33,5 +33,8 @@ export const AddBotton: React.FC<Props> = ({ watch }) => {
   if (watch('price') === 0) {
     return <Wrapper disabled>金額を入力してください</Wrapper>
   }
+  if (watch('memo') === '') {
+    return <Wrapper disabled>メモを入力してください</Wrapper>
+  }
   return <Wrapper type="submit">登録する</Wrapper>
 }
