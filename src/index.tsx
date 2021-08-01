@@ -15,7 +15,9 @@ import { liffApp } from 'lib/external/liff'
 import { createStore } from 'lib/store'
 import { theme } from 'lib/theme'
 
-liffApp.init().catch((err) => alert(err))
+liffApp
+  .init()
+  .catch((err) => alert('code: ' + err.code + '\nmessage: ' + err.message))
 firebaseApp.init()
 const store = createStore()
 
