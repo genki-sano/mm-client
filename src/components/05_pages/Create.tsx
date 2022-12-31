@@ -23,7 +23,7 @@ export const CreatePage: React.FC = () => {
 
   const defaultValues: PaymentCreateForm = {
     user: getAuthUser(users, authUserId) || 'woman',
-    category: 'その他',
+    category: '食費',
     price: 0,
     date: new Date(),
     memo: '',
